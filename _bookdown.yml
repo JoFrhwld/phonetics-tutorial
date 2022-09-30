@@ -1,7 +1,0 @@
-book_filename: "Corpus Phonetics Tutorial"
-chapter_name: ""
-repo: https://github.com/echodroff/corpus-phonetics-tutorial
-output_dir: docs
-rmd_files: ["index.Rmd", "01-Kaldi.Rmd", "02-Montreal-Forced-Aligner.Rmd", "03-AutoVOT.Rmd", "04-Bash-Shell-Basics.Rmd", "05-Resources.Rmd"]
-clean: [packages.bib, bookdown.bbl]
-new_session: yes
