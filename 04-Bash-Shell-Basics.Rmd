@@ -1,5 +1,6 @@
 ---
 title: "Bash Shell Basics"
+author: "Eleanor Chodroff"
 ---
 
 ## Introduction

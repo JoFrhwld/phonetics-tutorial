@@ -1,11 +1,11 @@
 project:
+  type: website
   title: "Corpus Phonetics Tutorial"
+  render: 
+    - "*qmd"
+    - "*Rmd"
 
-bibliography: book.bib  
-
+bibliography: book.bib
 format: 
-  html: 
+  html:
     author: "Eleanor Chodroff"
-    date: "2022"
-
-

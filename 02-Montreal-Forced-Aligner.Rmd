@@ -1,5 +1,6 @@
 ---
 title: "Montreal Forced Aligner"
+author: "Eleanor Chodroff"
 ---
 
 ## Overview

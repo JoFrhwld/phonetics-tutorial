@@ -3,8 +3,14 @@ title: "Corpus Phonetics Tutorial"
 author: "Eleanor Chodroff"
 date: "Updated: `r Sys.Date()`"
 description: "A corpus phonetics tutorial"
-image: "sound.png"
+listing: 
+  type: table
+  contents: "0*Rmd"
+  id: "contents"
 ---
+
+:::{#contents}
+:::
 
 # Introduction
 Corpus phonetics has become an increasingly popular method of research in linguistic analysis. With advances in speech technology and computational power, large scale processing of speech data has become a viable technique. A fair number of researchers have exploited these methods, yet these techniques still remain elusive for many. In the words of Mark Liberman, there has been “surprisingly little change in style and scale of [phonetic] research” from 1966 on, implying that the field still relies on small sample sizes of speech data (2009). While “big data” phonetics is not the be-all and end-all of phonetic research, larger sample sizes ensure more statistically sound conclusions about phonetic values in an individual or population. Furthermore, corpus research is not synonymous with big data. Rather, corpus phonetics describes a method of processing speech data with advantages primarily gained in its computational power (relation to big data) and efficiency. The methods and tools developed for corpus phonetics are based on engineering algorithms primarily from automatic speech recognition (ASR), as well as simple programming for data manipulation. This tutorial aims to bring some of these tools to the non-engineer, and specifically to the speech scientist.

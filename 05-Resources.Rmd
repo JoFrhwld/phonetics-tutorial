@@ -1,5 +1,6 @@
 ---
 title: Resources
+author: "Eleanor Chodroff"
 ---
 
 # Other resources
