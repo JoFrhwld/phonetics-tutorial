@@ -1,0 +1,7 @@
+book_filename: "Corpus Phonetics Tutorial"
+chapter_name: ""
+repo: https://github.com/echodroff/corpus-phonetics-tutorial
+output_dir: docs
+rmd_files: ["index.Rmd", "01-Montreal-Forced-Aligner-v1.Rmd", "02-FAVE-align.Rmd", "03-Penn-Forced-Aligner.Rmd"]
+clean: [packages.bib, bookdown.bbl]
+new_session: yes

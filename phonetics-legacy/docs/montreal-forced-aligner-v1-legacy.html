@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Montreal Forced Aligner v1 (Legacy) | Legacy Pages of the Corpus Phonetics Tutorial</title>
+  <meta name="description" content="The legacy pages of the corpus phonetics tutorial" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Montreal Forced Aligner v1 (Legacy) | Legacy Pages of the Corpus Phonetics Tutorial" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://eleanorchodroff.com/tutorial/legacy/" />
+  
+  <meta property="og:description" content="The legacy pages of the corpus phonetics tutorial" />
+  <meta name="github-repo" content="echodroff/corpus-phonetics-tutorial" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Montreal Forced Aligner v1 (Legacy) | Legacy Pages of the Corpus Phonetics Tutorial" />
+  
+  <meta name="twitter:description" content="The legacy pages of the corpus phonetics tutorial" />
+  
+
+<meta name="author" content="Eleanor Chodroff" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="fave-align-legacy.html"/>
+<script src="libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><b><a href="https://eleanorchodroff.com/tutorial/index.html">Corpus Phonetics Tutorial</a></b></li>
+
+<li class="divider"></li>
+<li><a href="index.html#introduction" id="toc-introduction"><span class="toc-section-number">1</span> Introduction<span></span></a></li>
+<li><a href="montreal-forced-aligner-v1-legacy.html#montreal-forced-aligner-v1-legacy" id="toc-montreal-forced-aligner-v1-legacy"><span class="toc-section-number">2</span> Montreal Forced Aligner v1 (Legacy)<span></span></a>
+<ul>
+<li><a href="montreal-forced-aligner-v1-legacy.html#overview" id="toc-overview"><span class="toc-section-number">2.1</span> Overview<span></span></a></li>
+<li><a href="montreal-forced-aligner-v1-legacy.html#setup" id="toc-setup"><span class="toc-section-number">2.2</span> Setup<span></span></a>
+<ul>
+<li><a href="montreal-forced-aligner-v1-legacy.html#wav-files" id="toc-wav-files"><span class="toc-section-number">2.2.1</span> Wav files<span></span></a></li>
+<li><a href="montreal-forced-aligner-v1-legacy.html#transcripts" id="toc-transcripts"><span class="toc-section-number">2.2.2</span> Transcripts<span></span></a></li>
+<li><a href="montreal-forced-aligner-v1-legacy.html#pronunciation-lexicon" id="toc-pronunciation-lexicon"><span class="toc-section-number">2.2.3</span> Pronunciation lexicon<span></span></a></li>
+<li><a href="montreal-forced-aligner-v1-legacy.html#acoustic-models" id="toc-acoustic-models"><span class="toc-section-number">2.2.4</span> Acoustic models<span></span></a></li>
+</ul></li>
+<li><a href="montreal-forced-aligner-v1-legacy.html#grapheme-to-phoneme-models" id="toc-grapheme-to-phoneme-models"><span class="toc-section-number">2.3</span> Grapheme-to-phoneme models<span></span></a></li>
+<li><a href="montreal-forced-aligner-v1-legacy.html#running-the-aligner" id="toc-running-the-aligner"><span class="toc-section-number">2.4</span> Running the aligner<span></span></a></li>
+<li><a href="montreal-forced-aligner-v1-legacy.html#tips-and-tricks" id="toc-tips-and-tricks"><span class="toc-section-number">2.5</span> Tips and tricks<span></span></a></li>
+</ul></li>
+<li><a href="fave-align-legacy.html#fave-align-legacy" id="toc-fave-align-legacy"><span class="toc-section-number">3</span> FAVE-align (Legacy)<span></span></a>
+<ul>
+<li><a href="fave-align-legacy.html#overview-1" id="toc-overview-1"><span class="toc-section-number">3.1</span> Overview<span></span></a></li>
+<li><a href="fave-align-legacy.html#installation" id="toc-installation"><span class="toc-section-number">3.2</span> Installation<span></span></a></li>
+<li><a href="fave-align-legacy.html#running-the-aligner-1" id="toc-running-the-aligner-1"><span class="toc-section-number">3.3</span> Running the aligner<span></span></a></li>
+</ul></li>
+<li><a href="penn-forced-aligner-legacy.html#penn-forced-aligner-legacy" id="toc-penn-forced-aligner-legacy"><span class="toc-section-number">4</span> Penn Forced Aligner (Legacy)<span></span></a>
+<ul>
+<li><a href="penn-forced-aligner-legacy.html#overview-2" id="toc-overview-2"><span class="toc-section-number">4.1</span> Overview<span></span></a></li>
+<li><a href="penn-forced-aligner-legacy.html#prerequisites" id="toc-prerequisites"><span class="toc-section-number">4.2</span> Prerequisites<span></span></a></li>
+<li><a href="penn-forced-aligner-legacy.html#modifying-the-lexicon" id="toc-modifying-the-lexicon"><span class="toc-section-number">4.3</span> Modifying the lexicon<span></span></a></li>
+<li><a href="penn-forced-aligner-legacy.html#running-the-aligner-2" id="toc-running-the-aligner-2"><span class="toc-section-number">4.4</span> Running the aligner<span></span></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Legacy Pages of the Corpus Phonetics Tutorial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="montreal-forced-aligner-v1-legacy" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Montreal Forced Aligner v1 (Legacy)<a href="montreal-forced-aligner-v1-legacy.html#montreal-forced-aligner-v1-legacy" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Overview<a href="montreal-forced-aligner-v1-legacy.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Some links in this section may now be broken with the latest update to the Montreal Forced Aligner 2.0</strong></p>
+<p>The <a href="https://montreal-forced-aligner.readthedocs.io/en/latest/introduction.html" target="_blank">Montreal Forced Aligner</a> is a forced alignment system with acoustic models built using the <a href="https://eleanorchodroff.com/tutorial/kaldi/introduction.html" target="_blank">Kaldi ASR toolkit</a>. A major highlight of this system is the availability of pretrained acoustic models and grapheme-to-phoneme models for a wide variety of languages.</p>
+<p>The primary website contains excellent documentation, so I’ll provide some tips and tricks I’ve picked up while using it.</p>
+<p>A quick link to the installation instructions is located on the primary MFA <a href="https://montreal-forced-aligner.readthedocs.io/en/latest/installation.html" target="_blank">website</a>. This tutorial is based on Version 1.1.</p>
+</div>
+<div id="setup" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Setup<a href="montreal-forced-aligner-v1-legacy.html#setup" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As with any forced alignment system, the Montreal Forced Aligner will time-align a transcript to a corresponding audio file at the phone and word levels provided there exist a set of pretrained acoustic models and a lexicon/dictionary of the words in the transcript with their canonical phonetic pronunciation(s). The phone set used in the dictionary must match the phone set in the acoustic models. The orthography used in the dictionary must also match that in the transcript.</p>
+<p>Very generally, the procedure is as follows:</p>
+<ul>
+<li>Prep wav file(s) (16 kHz, single channel)</li>
+<li>Prep transcript(s) (Praat TextGrid or .lab/.txt file)</li>
+<li>Obtain a pronunciation lexicon</li>
+<li>Obtain acoustic models</li>
+</ul>
+<p>You will also need to identify or create an <strong>input folder</strong> that contains the wav files and TextGrids/transcripts and an <strong>output folder</strong> for the time-aligned TextGrid to be created.</p>
+<p><strong>Please make sure that you have separate input and output folders, and that the output folder is not a subdirectory of the input folder!</strong> The MFA deletes everything in the output folder: if it is the same as your input folder, the system will delete your input files.</p>
+<div id="wav-files" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Wav files<a href="montreal-forced-aligner-v1-legacy.html#wav-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The Montreal Forced Aligner works best and sometimes will only work with wav files that are sampled at 16 kHz and are single channel files. You may need to resample your audio and extract a single channel prior to running the aligner.</p>
+<p><a href="https://www.eleanorchodroff.com/tutorial/scripts/prep_audio_mfa.praat" target="_blank">prep_audio_mfa.praat</a></p>
+</div>
+<div id="transcripts" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Transcripts<a href="montreal-forced-aligner-v1-legacy.html#transcripts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The MFA can take as input either a Praat TextGrid or a <code>.lab</code> or <code>.txt</code> file. I have worked most extensively with the TextGrid input, so I’ll describe those details here. As for <code>.lab</code> and <code>.txt</code> input, I have only tried running the aligner where the transcript is pasted in as a single line. I think there is a way of providing timestamps at the utterance level, but I can’t speak to that yet.</p>
+<p>The most straightforward implementation of the aligner with TextGrid input is to paste the transcript into a TextGrid with a single interval tier. The transcript <em>must</em> be delimited by boundaries on that tier; however, those boundaries <em>cannot</em> be located at either the absolute start or absolute end of the wav file (start boundary != 0, end boundary != total duration). In fact, I’ve found that the MFA can be very sensitive to the location of the end boundary: it’s best to have at least 20 ms, if not 50 ms+ between the final TextGrid boundary and the end of the wav file (see also Section <a href="montreal-forced-aligner-v1-legacy.html#tips-and-tricks">2.5</a> on Tips and Tricks).</p>
+<p>If you have utterance-level timestamps, you can also add in additional intervals for an alignment that is less likely to “derail”. By “derail”, I mean that the aligner gets thrown off early on in the wav file and never gets back on track, which yields a fairly misaligned “alignment”. By delimiting the temporal span of an utterance, the aligner has a chance to reset at the next utterance, even if the preceding utterance was completely misaligned. Side note: misalignments are more likely to occur if there’s additional noise in the wav file (e.g., coughing, background noise) or if the speech and transcript don’t match at either the word or phone level (e.g., pronunciation of a word does not match the dictionary/lexicon entry).</p>
+<p>Here are few sample Praat scripts I employ for creating TextGrids.</p>
+<p>If I don’t have timestamps, but I do have a transcript:
+<a href="https://www.eleanorchodroff.com/tutorial/scripts/create_textgrid_mfa_simple.praat" target="_blank">create_textgrid_mfa_simple.praat</a></p>
+<p>If the transcript has start and end times for each utterance (3 column text file with start time, end time, text):
+<a href="https://www.eleanorchodroff.com/tutorial/scripts/create_textgrid_mfa_timestamps.praat" target="_blank">create_textgrid_mfa_timestamps.praat</a></p>
+<p>That last Praat script can also be modified for a transcript with either start or end times, but not both. Make sure to follow the “rules” (which may change) that text-containing intervals be separated by empty intervals and the boundaries do not align with either the absolute start or end of the file.</p>
+</div>
+<div id="pronunciation-lexicon" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Pronunciation lexicon<a href="montreal-forced-aligner-v1-legacy.html#pronunciation-lexicon" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The pronunciation lexicon must be a two column text file with a list of words on the lefthand side and the phonetic pronunciation(s) on the righthand side. Many-to-many mappings between words and pronunciations are permitted. As mentioned above, the phone set must match that used in the acoustic models and the orthography must match that in the transcripts.</p>
+<p>There are a few options for obtaining a pronunciation lexicon, outlined below. More details about several of these options are in the sections to come.</p>
+<ul>
+<li><p><a href="https://montreal-forced-aligner.readthedocs.io/en/latest/pretrained_models.html" target="_blank">Download</a> the pronunciation lexicon from the MFA website</p>
+<ul>
+<li>As of writing, there are dictionaries for English, French, and German</li>
+</ul></li>
+<li><p><a href="https://montreal-forced-aligner.readthedocs.io/en/latest/pretrained_models.html" target="_blank">Generate</a> the pronunciation lexicon from the transcripts using a pretrained grapheme-to-phoneme (G2P) model</p>
+<ul>
+<li>See section <a href="montreal-forced-aligner-v1-legacy.html#grapheme-to-phoneme-models">2.3</a> on Running a G2P model</li>
+</ul></li>
+<li><p><a href="https://montreal-forced-aligner.readthedocs.io/en/latest/g2p_model_training.html" target="_blank">Train</a> a G2P model to then generate the pronunciation lexicon</p></li>
+<li><p>Create the pronunciation lexicon by hand using the same phone set as the acoustic models</p></li>
+</ul>
+</div>
+<div id="acoustic-models" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Acoustic models<a href="montreal-forced-aligner-v1-legacy.html#acoustic-models" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pretrained acoustic models for several languages can be downloaded from the Montreal Forced Aligner website.</p>
+<p>If you wish to train custom acoustic models on a speech corpus, this can be accomplished using the Kaldi ASR toolkit. A tutorial for training acoustic models can be found <a href="https://eleanorchodroff.com/tutorial/kaldi/introduction.html" target="_blank">here</a>.</p>
+</div>
+</div>
+<div id="grapheme-to-phoneme-models" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Grapheme-to-phoneme models<a href="montreal-forced-aligner-v1-legacy.html#grapheme-to-phoneme-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>If you need a lexicon for the words in your transcript, you might be able to generate one using a grapheme-to-phoneme model. Grapheme-to-phoneme models convert the orthographic representation of a language to its canonical phonetic form after having been trained on examples or conversion rules. Pretrained grapheme-to-phoneme (G2P) models can be found at the <a href="https://montreal-forced-aligner.readthedocs.io/en/latest/pretrained_models.html#pretrained-g2p-models" target="_blank">Montreal Forced Aligner website</a>. Once you download the one you want, you can follow these instructions:</p>
+<ol style="list-style-type: decimal">
+<li><p>Place grapheme-to-phoneme model in <code>montreal-forced-aligner/pretrained_models</code> folder (they can technically go anywhere, but this structure keeps the files organized)</p></li>
+<li><p>Create input and output folders</p></li>
+<li><p>Place transcripts and wav files in input folder. At least in version 1.1, the wav files needed to be present in order to run the grapheme-to-phoneme conversion model on the transcripts</p></li>
+<li><p>Run grapheme-to-phoneme model</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="montreal-forced-aligner-v1-legacy.html#cb1-1" aria-hidden="true" tabindex="-1"></a>cd path<span class="sc">/</span>to<span class="sc">/</span>montreal<span class="sc">-</span>forced<span class="sc">-</span>aligner<span class="sc">/</span></span>
+<span id="cb1-2"><a href="montreal-forced-aligner-v1-legacy.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="montreal-forced-aligner-v1-legacy.html#cb1-3" aria-hidden="true" tabindex="-1"></a>bin<span class="sc">/</span>mfa_generate_dictionary <span class="sc">/</span>path<span class="sc">/</span>to<span class="sc">/</span>model<span class="sc">/</span>file.zip <span class="sc">/</span>path<span class="sc">/</span>to<span class="sc">/</span>corpus <span class="sc">/</span>path<span class="sc">/</span>to<span class="sc">/</span>save.txt</span></code></pre></div>
+<p><code>bin/mfa_generate_dictionary</code> takes 3 arguments:</p>
+<pre><code>1. where is the grapheme-to-phoneme model?  
+2. where are the wav files and transcripts? (input folder)  
+3. where should the output go? (output text file)</code></pre>
+<p>Explicit example (make sure to remove backslashes):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="montreal-forced-aligner-v1-legacy.html#cb3-1" aria-hidden="true" tabindex="-1"></a>cd <span class="sc">/</span>Users<span class="sc">/</span>Eleanor<span class="sc">/</span>montreal<span class="sc">-</span>forced<span class="sc">-</span>aligner</span>
+<span id="cb3-2"><a href="montreal-forced-aligner-v1-legacy.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="montreal-forced-aligner-v1-legacy.html#cb3-3" aria-hidden="true" tabindex="-1"></a>bin<span class="sc">/</span>mfa_generate_dictionary pretrained_models<span class="sc">/</span>mandarin_character_g2p.zip \</span>
+<span id="cb3-4"><a href="montreal-forced-aligner-v1-legacy.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>Eleanor<span class="sc">/</span>Desktop<span class="sc">/</span>align_input <span class="sc">/</span>Users<span class="sc">/</span>Eleanor<span class="sc">/</span>Desktop<span class="sc">/</span>mandarin_dict.txt</span></code></pre></div>
+</div>
+<div id="running-the-aligner" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Running the aligner<a href="montreal-forced-aligner-v1-legacy.html#running-the-aligner" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>Place acoustic models and dictionary in <code>montreal-forced-aligner/pretrained_models</code> folder (they can technically go anywhere, but this structure keeps the files organized)</p></li>
+<li><p>Create input and output folders</p></li>
+<li><p>Place TextGrids and wav files in input folder</p></li>
+<li><p>Run Montreal Forced Aligner</p></li>
+</ol>
+<p>Make sure to change the arguments of <code>bin/mfa_align</code>!</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="montreal-forced-aligner-v1-legacy.html#cb4-1" aria-hidden="true" tabindex="-1"></a>cd path<span class="sc">/</span>to<span class="sc">/</span>montreal<span class="sc">-</span>forced<span class="sc">-</span>aligner<span class="sc">/</span></span>
+<span id="cb4-2"><a href="montreal-forced-aligner-v1-legacy.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="montreal-forced-aligner-v1-legacy.html#cb4-3" aria-hidden="true" tabindex="-1"></a>bin<span class="sc">/</span>mfa_align corpus_directory dictionary acoustic_model output_directory</span></code></pre></div>
+<p><code>bin/mfa_align</code> takes 4 arguments:</p>
+<pre><code>1. where are the wav files and TextGrids? (input folder)  
+2. where is the dictionary?  
+3. where are the acoustic models? (you do need the .zip extension)  
+4. where should the output go? (output folder)  </code></pre>
+<p>Explicit example (make sure to remove backslashes):</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="montreal-forced-aligner-v1-legacy.html#cb6-1" aria-hidden="true" tabindex="-1"></a>cd <span class="sc">/</span>Users<span class="sc">/</span>Eleanor<span class="sc">/</span>montreal<span class="sc">-</span>forced<span class="sc">-</span>aligner</span>
+<span id="cb6-2"><a href="montreal-forced-aligner-v1-legacy.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="montreal-forced-aligner-v1-legacy.html#cb6-3" aria-hidden="true" tabindex="-1"></a>bin<span class="sc">/</span>mfa_align <span class="sc">/</span>Users<span class="sc">/</span>Eleanor<span class="sc">/</span>Desktop<span class="sc">/</span>align_input pretrained_models<span class="sc">/</span>german_dictionary.txt \ pretrained_models<span class="sc">/</span>german.zip <span class="sc">/</span>Users<span class="sc">/</span>Eleanor<span class="sc">/</span>Desktop<span class="sc">/</span>align_output</span></code></pre></div>
+</div>
+<div id="tips-and-tricks" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Tips and tricks<a href="montreal-forced-aligner-v1-legacy.html#tips-and-tricks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Acoustic models</strong></p>
+<p>You do not need to unzip these. If you do, make sure to call the <code>.zip</code> version.</p>
+<p><strong>Wav files</strong></p>
+<p>I mentioned it above, and will mention it again. Things tend to go more smoothly when the wav file is already 16 kHz and a single channel.</p>
+<p><strong>TextGrids</strong></p>
+<ul>
+<li>make sure TextGrid boundaries do not align with either the absolute start or end of the file<br />
+</li>
+<li>make sure the final TextGrid boundary is at least ~20-50 ms away from the edge (if it still doesn’t work, you might want to try increasing that interval)</li>
+<li>sometimes it helps to have an empty interval between every interval containing text<br />
+</li>
+<li>sometimes it helps to increase the number of intervals present in the file so the aligner becomes less likely to derail</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fave-align-legacy.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+#textfile {
+font-family: Consolas, monospace;
+background-color:#ececf9;
+font-size:15px;
+letter-spacing:.01em;
+font-weight:lighter;
+padding:2px 0 0 15px;
+}

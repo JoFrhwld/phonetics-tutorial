@@ -1,0 +1,150 @@
+# Montreal Forced Aligner v1 (Legacy)
+
+## Overview
+
+**Some links in this section may now be broken with the latest update to the Montreal Forced Aligner 2.0**
+
+The [Montreal Forced Aligner](https://montreal-forced-aligner.readthedocs.io/en/latest/introduction.html){target="_blank"} is a forced alignment system with acoustic models built using the [Kaldi ASR toolkit](https://eleanorchodroff.com/tutorial/kaldi/introduction.html){target="_blank"}. A major highlight of this system is the availability of pretrained acoustic models and grapheme-to-phoneme models for a wide variety of languages. 
+
+The primary website contains excellent documentation, so I'll provide some tips and tricks I've picked up while using it.
+
+A quick link to the installation instructions is located on the primary MFA [website](https://montreal-forced-aligner.readthedocs.io/en/latest/installation.html){target="_blank"}. This tutorial is based on Version 1.1.
+
+## Setup
+As with any forced alignment system, the Montreal Forced Aligner will time-align a transcript to a corresponding audio file at the phone and word levels provided there exist a set of pretrained acoustic models and a lexicon/dictionary of the words in the transcript with their canonical phonetic pronunciation(s). The phone set used in the dictionary must match the phone set in the acoustic models. The orthography used in the dictionary must also match that in the transcript.
+
+Very generally, the procedure is as follows: 
+
+* Prep wav file(s) (16 kHz, single channel)
+* Prep transcript(s) (Praat TextGrid or .lab/.txt file)
+* Obtain a pronunciation lexicon
+* Obtain acoustic models
+
+You will also need to identify or create an **input folder** that contains the wav files and TextGrids/transcripts and an **output folder** for the time-aligned TextGrid to be created. 
+
+**Please make sure that you have separate input and output folders, and that the output folder is not a subdirectory of the input folder!** The MFA deletes everything in the output folder: if it is the same as your input folder, the system will delete your input files.
+
+### Wav files
+The Montreal Forced Aligner works best and sometimes will only work with wav files that are sampled at 16 kHz and are single channel files. You may need to resample your audio and extract a single channel prior to running the aligner.
+
+[prep_audio_mfa.praat](https://www.eleanorchodroff.com/tutorial/scripts/prep_audio_mfa.praat){target="_blank"}
+
+### Transcripts
+The MFA can take as input either a Praat TextGrid or a `.lab` or `.txt` file. I have worked most extensively with the TextGrid input, so I'll describe those details here. As for `.lab` and `.txt` input, I have only tried running the aligner where the transcript is pasted in as a single line. I think there is a way of providing timestamps at the utterance level, but I can't speak to that yet. 
+
+The most straightforward implementation of the aligner with TextGrid input is to paste the transcript into a TextGrid with a single interval tier. The transcript *must* be delimited by boundaries on that tier; however, those boundaries *cannot* be located at either the absolute start or absolute end of the wav file (start boundary != 0, end boundary != total duration). In fact, I've found that the MFA can be very sensitive to the location of the end boundary: it's best to have at least 20 ms, if not 50 ms+ between the final TextGrid boundary and the end of the wav file (see also Section \@ref(tips-and-tricks) on Tips and Tricks).
+
+If you have utterance-level timestamps, you can also add in additional intervals for an alignment that is less likely to "derail". By "derail", I mean that the aligner gets thrown off early on in the wav file and never gets back on track, which yields a fairly misaligned "alignment". By delimiting the temporal span of an utterance, the aligner has a chance to reset at the next utterance, even if the preceding utterance was completely misaligned. Side note: misalignments are more likely to occur if there's additional noise in the wav file (e.g., coughing, background noise) or if the speech and transcript don't match at either the word or phone level (e.g., pronunciation of a word does not match the dictionary/lexicon entry). 
+
+Here are few sample Praat scripts I employ for creating TextGrids.
+
+If I don't have timestamps, but I do have a transcript:
+[create_textgrid_mfa_simple.praat](https://www.eleanorchodroff.com/tutorial/scripts/create_textgrid_mfa_simple.praat){target="_blank"}
+
+If the transcript has start and end times for each utterance (3 column text file with start time, end time, text): 
+[create_textgrid_mfa_timestamps.praat](https://www.eleanorchodroff.com/tutorial/scripts/create_textgrid_mfa_timestamps.praat){target="_blank"}
+
+That last Praat script can also be modified for a transcript with either start or end times, but not both. Make sure to follow the "rules" (which may change) that text-containing intervals be separated by empty intervals and the boundaries do not align with either the absolute start or end of the file.
+
+### Pronunciation lexicon
+
+The pronunciation lexicon must be a two column text file with a list of words on the lefthand side and the phonetic pronunciation(s) on the righthand side. Many-to-many mappings between words and pronunciations are permitted. As mentioned above, the phone set must match that used in the acoustic models and the orthography must match that in the transcripts.
+
+There are a few options for obtaining a pronunciation lexicon, outlined below. More details about several of these options are in the sections to come.
+
+* [Download](https://montreal-forced-aligner.readthedocs.io/en/latest/pretrained_models.html){target="_blank"} the pronunciation lexicon from the MFA website 
+    + As of writing, there are dictionaries for English, French, and German
+
+* [Generate](https://montreal-forced-aligner.readthedocs.io/en/latest/pretrained_models.html){target="_blank"} the pronunciation lexicon from the transcripts using a pretrained grapheme-to-phoneme (G2P) model
+    + See section \@ref(grapheme-to-phoneme-models) on Running a G2P model
+
+* [Train](https://montreal-forced-aligner.readthedocs.io/en/latest/g2p_model_training.html){target="_blank"} a G2P model to then generate the pronunciation lexicon
+
+* Create the pronunciation lexicon by hand using the same phone set as the acoustic models
+
+### Acoustic models
+
+Pretrained acoustic models for several languages can be downloaded from the Montreal Forced Aligner website. 
+
+If you wish to train custom acoustic models on a speech corpus, this can be accomplished using the Kaldi ASR toolkit. A tutorial for training acoustic models can be found [here](https://eleanorchodroff.com/tutorial/kaldi/introduction.html){target="_blank"}.
+
+## Grapheme-to-phoneme models
+If you need a lexicon for the words in your transcript, you might be able to generate one using a grapheme-to-phoneme model. Grapheme-to-phoneme models convert the orthographic representation of a language to its canonical phonetic form after having been trained on examples or conversion rules. Pretrained grapheme-to-phoneme (G2P) models can be found at the [Montreal Forced Aligner website](https://montreal-forced-aligner.readthedocs.io/en/latest/pretrained_models.html#pretrained-g2p-models){target="_blank"}. Once you download the one you want, you can follow these instructions: 
+
+1. Place grapheme-to-phoneme model in `montreal-forced-aligner/pretrained_models` folder (they can technically go anywhere, but this structure keeps the files organized)
+
+2. Create input and output folders 
+
+3. Place transcripts and wav files in input folder. At least in version 1.1, the wav files needed to be present in order to run the grapheme-to-phoneme conversion model on the transcripts
+
+4. Run grapheme-to-phoneme model
+
+``` {r eval=FALSE}
+cd path/to/montreal-forced-aligner/
+
+bin/mfa_generate_dictionary /path/to/model/file.zip /path/to/corpus /path/to/save.txt
+```
+
+`bin/mfa_generate_dictionary` takes 3 arguments: 
+
+    1. where is the grapheme-to-phoneme model?  
+    2. where are the wav files and transcripts? (input folder)  
+    3. where should the output go? (output text file)
+    
+    
+Explicit example (make sure to remove backslashes):
+```{r eval=FALSE}
+cd /Users/Eleanor/montreal-forced-aligner
+
+bin/mfa_generate_dictionary pretrained_models/mandarin_character_g2p.zip \
+/Users/Eleanor/Desktop/align_input /Users/Eleanor/Desktop/mandarin_dict.txt
+```
+
+## Running the aligner
+1. Place acoustic models and dictionary in `montreal-forced-aligner/pretrained_models` folder (they can technically go anywhere, but this structure keeps the files organized)
+
+2. Create input and output folders
+
+3. Place TextGrids and wav files in input folder
+
+4. Run Montreal Forced Aligner
+
+
+Make sure to change the arguments of `bin/mfa_align`!
+
+```{r eval=FALSE}
+cd path/to/montreal-forced-aligner/
+
+bin/mfa_align corpus_directory dictionary acoustic_model output_directory
+```
+
+`bin/mfa_align` takes 4 arguments: 
+    
+    1. where are the wav files and TextGrids? (input folder)  
+    2. where is the dictionary?  
+    3. where are the acoustic models? (you do need the .zip extension)  
+    4. where should the output go? (output folder)  
+
+Explicit example (make sure to remove backslashes):
+```{r eval=FALSE}
+cd /Users/Eleanor/montreal-forced-aligner
+
+bin/mfa_align /Users/Eleanor/Desktop/align_input pretrained_models/german_dictionary.txt \ pretrained_models/german.zip /Users/Eleanor/Desktop/align_output
+```
+## Tips and tricks
+
+**Acoustic models**
+
+You do not need to unzip these. If you do, make sure to call the `.zip` version.
+
+**Wav files**
+
+I mentioned it above, and will mention it again. Things tend to go more smoothly when the wav file is already 16 kHz and a single channel.
+
+**TextGrids**
+
+* make sure TextGrid boundaries do not align with either the absolute start or end of the file  
+* make sure the final TextGrid boundary is at least ~20-50 ms away from the edge (if it still doesn't work, you might want to try increasing that interval)
+* sometimes it helps to have an empty interval between every interval containing text  
+* sometimes it helps to increase the number of intervals present in the file so the aligner becomes less likely to derail
+ 
