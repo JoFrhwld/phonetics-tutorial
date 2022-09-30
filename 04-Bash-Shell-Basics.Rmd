@@ -1,9 +1,6 @@
 ---
-output:
-  pdf_document: default
-  html_document: default
+title: "Bash Shell Basics"
 ---
-# Bash Shell Basics
 
 ## Introduction
 
@@ -43,7 +40,8 @@ For each command entered, the shell reads the command, evaluates and executes it
 
 When opening the shell, the first thing presented on every line is a **prompt** for input, or the command to be executed. On the Mac terminal, the prompt is a dollar sign, and depending on your settings, the prompt may be preceded by the name of your computer, current location in the computer, and your username.
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $
   
 # or
@@ -62,7 +60,8 @@ When you first open the shell, it immediately "places you" in your home director
 So what is the full name of our home directory? We can find this out by having the shell spell out the current directory that we're located in with the command `pwd`, which stands for **print working directory**. 
 
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 Eleanors-Macbook-Pro-2:~ Eleanor$ pwd
 /Users/Eleanor
 ```
@@ -75,7 +74,8 @@ This command is useful if you ever need a reminder of where you are in the compu
 
 The next command we'll try is one of the most frequent commands used: `ls` which **lists** all files and directories in the current working directory. 
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ ls
 file1   dir1
 file2   dir2
@@ -84,7 +84,8 @@ file3   dir3
 
 Note that if you mistype a command, something bad could happen (`Ctrl-C` is a useful command to remember), or more likely the shell will throw an error indicating that the command was not found:
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ ks
 
 ks: command not found
@@ -92,7 +93,8 @@ ks: command not found
 
 There are several options or **flags** you can add to the `ls` command in order to display additional properties about the files and directories. I'll mention just a few useful ones here, but as with most things, you can find a complete list online. 
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 # show which are files and which directories
 $ ls -F
 
@@ -112,7 +114,8 @@ $ ls -t
 **Getting help**
 
 To see the manual for a command, you can use `man`
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ man ls
 ```
 
@@ -122,14 +125,16 @@ $ man ls
 A key part of the command line is the ability to navigate through the various directories in the computer. This is analagous to clicking on a directory and then a sub-directory and then maybe hitting the back arrow -- even using the GUI, we're also navigating through different locations in the computer. For this to work well, it helps to think of the computer as a massive tree structure of directories -- there are root directories, parent directories, and so forth. Using the command `cd` you can move up, down, and around on that tree structure. 
 
 Let's say you just want to go to a directory contained in your current working directory. You can use the following:
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ cd name-of-directory
 # where the name of the directory is a sub-directory of the current working directory
 ```
 
 Let's say you want to change to a completely different location on the computer. You can also type in the **absolute path** to the location starting from your home directory, and this will work from any location on your computer:
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ cd /Users/Eleanor/Dropbox/
 # where the name of the directory is a sub-directory of the current working directory
 ```
@@ -138,12 +143,14 @@ Note that the presence or absence of the final / typically does not make a diffe
 
 Let's say though that we just want to go to the directory above. We can instead use a **relative path** to indicate the location. Note that the first example was also an instance of a relative path. To specify a directory **above**, we use `..`.
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ cd ..
 ```
 
 We can even go two directories above:
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ cd ../..
 ```
 
@@ -152,19 +159,22 @@ So really, `cd` takes as its argument the **path**, absolute or relative, to the
 How might we go to a directory called `corpus` that is located one directory above our current working directory?
 
 Answer:
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ cd ../corpus
 ```
 
 Another useful shortcut is the dash `-` character. Using this character brings you back to the last directory you were in -- sort of like if you hit the back arrow on your internet browser. This function has nothing to do with the relative path, but rather the history of directories that you have visited. 
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ cd -
 ```
 
 Finally, we may not use it today, but another character to be aware of is the single dot `.`. This refers to the current working directory and is typically left unspecified (not written out) in commands. On occasion, it's useful to know of its existence 
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ cd ./corpus
 ```
 
@@ -172,7 +182,8 @@ $ cd ./corpus
 
 To create a directory in the command line, you can use the command `mkdir`. This takes one argument, the location and name of the new directory. If the location is in the current working directory, as usual, you can just leave out the full path and type the name of the directory.
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ mkdir mycorpus
 
 $ mkdir mycorpus/audio
@@ -184,7 +195,8 @@ Creating files in the command line requires use of a text editor. There are seve
 
 Let's create a dummy corpus of transcripts so we can practice manipulating and moving files in the command line.
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ cd mycorpus
 
 # press i to insert
@@ -202,8 +214,8 @@ Create files for speaker2, speaker3. Maybe we could also just copy a few of thes
 
 To view a text file, but not edit, you can use one of the following command:
 
-```{r eval=FALSE}
-
+```{bash}
+#| eval: false
 # to show 20 lines at a time
 $ more speaker1.txt
 # hit enter/return to see more
@@ -230,14 +242,16 @@ $ tail -n 3 speaker1.txt
 To copy a file, the command is `cp` and has two alternative usages: copying a source file to a target file, or copying a set of source files to a target directory.
 
 Copying in sense one involves copying one file and creating a new one with a different name. 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ cp speaker1.txt speaker4.txt
 
 ```
 
 Copying in sense two involves copying one or more files and putting the new versions (with the same name) into a different directory: 
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ mkdir test
   
 $ cp speaker1.txt speaker2.txt test
@@ -245,7 +259,8 @@ $ cp speaker1.txt speaker2.txt test
 
 We'll now need to modify speaker4.txt:
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ vi speaker4.txt
 
 This is the transcript for speaker (1)4.
@@ -253,7 +268,8 @@ This is the transcript for speaker (1)4.
 
 
 We can also copy a directory using the recursive `-r` flag.
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ cp -r test test_backup
 
 $ ls test test_backup
@@ -263,7 +279,8 @@ $ ls test test_backup
 
 Another very powerful part of the command line is moving files. 
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ mv source-file location/
 
 $ mv speaker1.txt test/
@@ -271,7 +288,8 @@ $ mv speaker1.txt test/
 
 Moving can also very usefully be used to rename files. Effectively, you move one file into the name of another file. 
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ mv source-file location/target-file
 
 $ mv speaker1.txt speaker1_new.txt
@@ -283,7 +301,8 @@ Because this renaming aspect of mv is so useful, we're going to explore a bit mo
 
 To rename all files in a directory, we can do the following. This is simply a command I use frequently in my own scripting, and I've found it incredibly useful. I'll explain each part once we see it in action:
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ for i in speaker*.txt; do mv "$i" "${i/.txt/_new.txt}"; done
 
 #alternatively
@@ -316,7 +335,8 @@ third slot is the replacement
 
 **Safer implementation**
 Be very careful with mv!! If you're not sure, make a backup of files and use `echo` first to print all matches.
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ echo speaker*.txt
   
 $ for i in speaker*.txt; do echo "$i" "${i/.txt/_new.txt}"; done
@@ -331,7 +351,8 @@ $ for i in speaker*.txt
 
 Removing files can be very risky and so should be done with the utmost care! When you remove files from the command line, the files do not get sent to the Trash bin. Instead, they are immediately and permanently deleted. It is almost impossible to recover these files, so again, **use with caution**!
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 # to remove with a nice prompt for each file! (highly recommended unless you have hundreds of files you're deleting at once)
 $ rm -i speaker1.txt
 
@@ -346,13 +367,15 @@ $ rm -i speaker*.txt
 ```
 
 Alternatively, you can run the quicker but riskier version without the `-i` flag.
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ rm speaker1.txt
 ```
 
 To remove an entire directory, you'll need to use the `-r` flag. This can be combined with the `-i` flag to give you the 'are you sure' warning:
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 $ rm -r myDirectory
 
 # or

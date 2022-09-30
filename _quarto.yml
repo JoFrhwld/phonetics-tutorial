@@ -1,0 +1,11 @@
+project:
+  title: "Corpus Phonetics Tutorial"
+
+bibliography: book.bib  
+
+format: 
+  html: 
+    author: "Eleanor Chodroff"
+    date: "2022"
+
+

@@ -1,3 +1,7 @@
+---
+title: AutoVot
+---
+
 # AutoVOT 
 
 ## Overview 
@@ -15,14 +19,16 @@ I was able to follow their instructions up until the  `pip -r "requirements.txt"
 
 First: install pip by typing the following into the command line (must be connected to the internet).
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 sudo easy_install pip
 sudo pip install --upgrade pip
 ```
 
 Second: even after installing pip, I had trouble running their command of `pip -r "requirements.txt"`, so I installed each package separately in the following way. These should again be typed into the command line (bash). 
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 pip install numpy
 pip install future
 pip install scipy
@@ -60,7 +66,8 @@ You'll then run `auto_vot_decode.py` from the `experiments` folder with the foll
 
 Example code for a voiceless stop (periodic reminder that backslashes shouldn't be copied; these are just there as line breaks):
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 cd experiments            
 export PATH=$PATH:/Users/Eleanor/autovot/autovot/bin
             
@@ -79,7 +86,8 @@ The recipe assumes that you have TextGrids containing the phone and word level t
 
 There are many ways to accomplish this; the following is just one suggested way using some Unix and the P2FA dictionary. The following bash commands take multiple transcripts with the naming structure `S001.txt`, `S002.txt`, etc. as input, concatenates them, removes punctuation, puts each word on a new line, strips end of line characters, converts lowercase to uppercase, then removes duplicate words. The output of this is returned in the text file `fulltranscript_words.txt`. If you have a single transcript, you can replace `S*[0-9].txt` with the name of your transcript. Before running this code, you must direct the terminal (`cd`) to the directory housing your full transcript (`fulltranscript.txt`).
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 cat S*[0-9].txt | tr -d '[:punct:]' | tr ' ' '\n' |  
 sed '/^$/d' | tr '[a-z]' '[A-Z]' | sort | uniq > transcript.txt
 ```
@@ -88,7 +96,8 @@ sed '/^$/d' | tr '[a-z]' '[A-Z]' | sort | uniq > transcript.txt
 
 `matchText.py` takes as input the CMU Pronouncing Dictionary with a '.txt' extension. It identifies which of the words in your transcript begin with stop consonants in prevocalic position. These words are stored in the text file `wordList.txt`. You will need to modify the path locations and possibly the regular expression in `matchText.py`.
             
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 # run matchText.py
 python matchText.py
 ```
@@ -113,7 +122,8 @@ The different labels in the ‘vot’ tier will have some consequences when runn
             
 The code below will generate a textfile located in the correct autovot folder that contains a list of the TextGrids with their path (`PWD` is the command that prints this). When generating these lists, the terminal must be in the directory that contains the TextGrids and wav files, respectively.
 
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 cd experiment/myTextGrids  
 ls -d -1 $PWD/*_vot.TextGrid > ~/autovot/experiments/config/ListTextGrids.txt
                     
@@ -127,7 +137,8 @@ Modify the arguments to `auto_vot_decode.py`: `window_mark` should be set to the
             
 Example code for a voiceless stop:
             
-```{r eval=FALSE}
+```{bash}
+#| eval: false
 cd experiments            
 export PATH=$PATH:/Users/Eleanor/autovot/autovot/bin
             

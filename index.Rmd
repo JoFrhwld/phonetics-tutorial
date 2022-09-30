@@ -2,20 +2,8 @@
 title: "Corpus Phonetics Tutorial"
 author: "Eleanor Chodroff"
 date: "Updated: `r Sys.Date()`"
-site: bookdown::bookdown_site
-documentclass: book
-bibliography: [book.bib]
-biblio-style: apalike
-link-citations: yes
-github-repo: echodroff/corpus-phonetics-tutorial
-url: 'http\://eleanorchodroff.com/tutorial/'
 description: "A corpus phonetics tutorial"
 image: "sound.png"
-output: pdf_book
-#output:
-#  bookdown::pdf_book:
-#    pandoc_args: [--wrap=none]
-urlcolor: blue
 ---
 
 # Introduction
