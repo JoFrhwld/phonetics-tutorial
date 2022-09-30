@@ -96,7 +96,7 @@ python matchText.py
 2. Find start and end times for words on `wordList.txt` in TextGrids with phone- and word- level boundaries
             
 [findWords.praat](https://www.eleanorchodroff.com/tutorial/scripts/findWords.praat){target="_blank"}
-`findWords.praat` takes as input `wordList.txt` and returns the start and end times of matching words in the audio file. This is stored in the text file `CVWordLocations.txt`. You will need to modify the source and destination paths in `findWords.praat`. Verify that the regular expression in `‘Create Strings as file list…’` will work for your setup.
+`findWords.praat` takes as input `wordList.txt`(https://www.eleanorchodroff.com/tutorial/scripts/wordList.txt){target="_blank"} and returns the start and end times of matching words in the audio file. This is stored in the text file `CVWordLocations.txt`(https://www.eleanorchodroff.com/tutorial/scripts/CVWordLocations.txt){target="_blank"}. You will need to modify the source and destination paths in `findWords.praat`. Verify that the regular expression in `‘Create Strings as file list…’` will work for your setup.
 
 3. Create AutoVOT intervals on a new tier in your Praat TextGrid
 
